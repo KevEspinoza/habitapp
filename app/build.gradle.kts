@@ -1,7 +1,10 @@
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.jetbrains.kotlin.android)
-    alias(libs.plugins.kotlin.kapt)
+    alias(libs.plugins.hilt)
+    alias(libs.plugins.play.services)
+    alias(libs.plugins.compose.compiler)
+    alias(libs.plugins.google.kps)
 }
 
 android {
@@ -11,7 +14,7 @@ android {
     defaultConfig {
         applicationId = "com.kevinespinoza.habitapp"
         minSdk = 24
-        targetSdk = 34
+        targetSdk = 35
         versionCode = 1
         versionName = "1.0"
 
@@ -31,6 +34,7 @@ android {
         }
     }
     compileOptions {
+        isCoreLibraryDesugaringEnabled = true
         sourceCompatibility = JavaVersion.VERSION_1_8
         targetCompatibility = JavaVersion.VERSION_1_8
     }
@@ -52,6 +56,8 @@ android {
 
 dependencies {
 
+    coreLibraryDesugaring(libs.desugar.jdk.libs.v203)
+
     // Accompanist
     implementation(libs.accompanist.pager.indicators)
     implementation(libs.accompanist.pager)
@@ -62,13 +68,15 @@ dependencies {
 
     // Firebase
     implementation(platform(libs.firebase.bom))
-    implementation(libs.play.services.auth)
+    implementation(libs.firebase.analytics)
+    implementation(libs.firebase.auth)
+
 
     // Dagger Hilt
     implementation(libs.hilt.android)
-    kapt(libs.hilt.compiler)
+    ksp(libs.hilt.compiler)
     implementation(libs.androidx.hilt.navigation.compose)
-    kapt(libs.androidx.hilt.compiler)
+    ksp(libs.androidx.hilt.compiler)
 
     // Coil
     implementation(libs.coil.compose)
@@ -82,7 +90,7 @@ dependencies {
 
     // Room
     implementation(libs.androidx.room.ktx)
-    kapt(libs.androidx.room.compiler)
+    ksp(libs.androidx.room.compiler)
     implementation(libs.androidx.room.runtime)
 
     // Retrofit
@@ -108,6 +116,7 @@ dependencies {
     implementation(libs.androidx.ui.graphics)
     implementation(libs.androidx.ui.tooling.preview)
     implementation(libs.androidx.material3)
+    implementation(libs.play.services.auth)
 
     // Test
     testImplementation(libs.junit)
@@ -117,7 +126,7 @@ dependencies {
     androidTestImplementation(libs.androidx.ui.test.junit4)
     debugImplementation(libs.androidx.ui.tooling)
     debugImplementation(libs.androidx.ui.test.manifest)
-    kaptAndroidTest(libs.hilt.android.compiler)
+    kspAndroidTest(libs.hilt.android.compiler)
     androidTestImplementation(libs.hilt.android.testing)
     androidTestImplementation(libs.androidx.work.testing)
     testImplementation(libs.turbine)

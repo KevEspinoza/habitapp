@@ -1,6 +1,7 @@
 [versions]
 agp = "8.5.0"
-kotlin = "1.9.0"
+desugar_jdk_libsVersion = "2.0.3"
+kotlin = "2.1.0"
 coreKtx = "1.15.0"
 junit = "4.13.2"
 junitVersion = "1.2.1"
@@ -12,7 +13,7 @@ accompanistVersion = "0.28.0"
 coilCompose = "2.2.2"
 desugar_jdk_libs = "2.1.4"
 hiltNavigationCompose = "1.2.0"
-hiltVersion = "2.49"
+hiltVersion = "2.56.2"
 hiltCompiler = "1.2.0"
 kotlinxCoroutinesTestVersion = "1.6.4"
 loggingInterceptorVersion = "5.0.0-alpha.2"
@@ -24,13 +25,18 @@ roomVersion = "2.6.1"
 timePicker = "1.1.0"
 turbineVersion = "0.7.0"
 workmanagerVersion = "2.10.0"
-firebaseBom = "33.9.0"
+firebaseBom = "33.10.0"
+playServicesVersion = "4.3.15"
+kspVersion = "2.1.0-1.0.28"
 
 [libraries]
 accompanist-pager-indicators = { module = "com.google.accompanist:accompanist-pager-indicators", version.ref = "accompanistVersion" }
 accompanist-pager = { module = "com.google.accompanist:accompanist-pager", version.ref = "accompanistVersion" }
 accompanist-permissions = { module = "com.google.accompanist:accompanist-permissions", version.ref = "accompanistVersion" }
+desugar_jdk_libs-v203 = { module = "com.android.tools:desugar_jdk_libs", version.ref = "desugar_jdk_libsVersion" }
 firebase-bom = { module = "com.google.firebase:firebase-bom", version.ref = "firebaseBom" }
+firebase-analytics = { group = "com.google.firebase", name = "firebase-analytics-ktx"}
+firebase-auth = { group = "com.google.firebase", name = "firebase-auth-ktx"}
 coil-compose = { module = "io.coil-kt:coil-compose", version.ref = "coilCompose" }
 desugar_jdk_libs = { module = "com.android.tools:desugar_jdk_libs", version.ref = "desugar_jdk_libs" }
 androidx-hilt-navigation-compose = { module = "androidx.hilt:hilt-navigation-compose", version.ref = "hiltNavigationCompose" }
@@ -73,5 +79,8 @@ androidx-material3 = { group = "androidx.compose.material3", name = "material3" 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }
 jetbrains-kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
-kotlin-kapt = { id = "org.jetbrains.kotlin.kapt", version.ref = "kotlin" }
+hilt = { id = "com.google.dagger.hilt.android", version.ref = "hiltVersion" }
+play-services = {id = "com.google.gms.google-services", version.ref = "playServicesVersion"}
+compose-compiler = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin" }
+google-kps = { id = "com.google.devtools.ksp", version.ref = "kspVersion"}
 
