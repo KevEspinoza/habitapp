@@ -1,4 +1,4 @@
-package com.kevinespinoza.habitapp
+package com.kevinespinoza.habitapp.main
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity

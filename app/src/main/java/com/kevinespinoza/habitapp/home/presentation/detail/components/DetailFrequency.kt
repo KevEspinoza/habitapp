@@ -32,15 +32,15 @@ fun DetailFrequency(
         modifier = modifier
             .fillMaxWidth()
             .clip(RoundedCornerShape(12.dp))
-            .background(Color.White)
+            .background(MaterialTheme.colorScheme.background)
     ) {
         Text(
             text = "Frequency",
             modifier = Modifier.padding(17.dp),
-            color = MaterialTheme.colorScheme.tertiary
+            color = MaterialTheme.colorScheme.secondary
         )
         Divider(
-            color = MaterialTheme.colorScheme.background
+            color = MaterialTheme.colorScheme.secondary
         )
         Row(
             modifier = Modifier
@@ -62,7 +62,7 @@ fun DetailFrequency(
                         modifier = Modifier
                             .fillMaxHeight()
                             .width(1.dp),
-                        color = MaterialTheme.colorScheme.background
+                        color = MaterialTheme.colorScheme.secondary
                     )
                 }
             }

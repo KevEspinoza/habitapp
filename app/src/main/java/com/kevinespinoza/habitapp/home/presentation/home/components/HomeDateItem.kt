@@ -34,7 +34,7 @@ fun HomeDateItem(
         Box(
             modifier = Modifier
                 .clip(RoundedCornerShape(12.dp))
-                .background(Color.White)
+                .background(MaterialTheme.colorScheme.background)
                 .size(50.dp)
                 .clickable { onClick() },
             contentAlignment = Alignment.Center
@@ -45,7 +45,7 @@ fun HomeDateItem(
                 Text(
                     text = date.dayOfWeek.name.take(3),
                     fontWeight = FontWeight.Bold,
-                    color = MaterialTheme.colorScheme.tertiary.copy(
+                    color = MaterialTheme.colorScheme.secondary.copy(
                         alpha = 0.5f
                     ),
                     fontSize = 10.sp
@@ -53,7 +53,7 @@ fun HomeDateItem(
                 Text(
                     text = date.dayOfMonth.toString(),
                     fontWeight = FontWeight.Bold,
-                    color = MaterialTheme.colorScheme.tertiary,
+                    color = MaterialTheme.colorScheme.secondary,
                     fontSize = 16.sp
                 )
             }
@@ -68,7 +68,7 @@ fun HomeDateItem(
                     .clip(
                         RoundedCornerShape(14.dp)
                     ),
-                color = MaterialTheme.colorScheme.tertiary
+                color = MaterialTheme.colorScheme.surface
             )
         }
     }

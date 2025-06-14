@@ -8,10 +8,7 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.ArrowBack
 import androidx.compose.material.icons.automirrored.filled.ExitToApp
-import androidx.compose.material.icons.filled.ExitToApp
 import androidx.compose.material.icons.filled.Phone
-import androidx.compose.material3.CenterAlignedTopAppBar
-import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
@@ -23,17 +20,18 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.kevinespinoza.habitapp.settings.presentation.components.SettingsItem
+import com.kevinespinoza.habitapp.ui.components.CustomTopBar
 
-@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun SettingsScreen(
     onBack: () -> Unit,
     onLogout: () -> Unit
 ) {
     Scaffold(
+        containerColor = MaterialTheme.colorScheme.primary,
         modifier = Modifier.fillMaxSize(),
         topBar = {
-            CenterAlignedTopAppBar(
+            CustomTopBar(
                 title = {
                     Text(
                         text = "Settings"
@@ -63,7 +61,7 @@ fun SettingsScreen(
                 text = "Support",
                 fontWeight = FontWeight.Medium,
                 fontSize = 16.sp,
-                color = MaterialTheme.colorScheme.tertiary
+                color = MaterialTheme.colorScheme.secondary
             )
             SettingsItem(text = "Contact", Icons.Default.Phone, {})
             SettingsItem(text = "Log out", Icons.AutoMirrored.Filled.ExitToApp, onLogout)

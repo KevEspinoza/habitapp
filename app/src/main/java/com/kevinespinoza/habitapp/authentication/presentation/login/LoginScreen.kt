@@ -67,8 +67,8 @@ fun LoginScreen(
                     Brush.verticalGradient(
                         colors = listOf(
                             Color.Transparent,
-                            MaterialTheme.colorScheme.background,
-                            MaterialTheme.colorScheme.background
+                            MaterialTheme.colorScheme.secondary,
+                            MaterialTheme.colorScheme.secondary
                         )
                     )
                 )

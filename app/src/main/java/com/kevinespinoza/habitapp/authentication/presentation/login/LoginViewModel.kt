@@ -77,11 +77,11 @@ class LoginViewModel @Inject constructor(
                     )
                 }.onFailure {
                     state = state.copy(
-                        toastError = it.message
+                        toastError = it.message,
                     )
                 }
                 state = state.copy(
-                    isLoading = true
+                    isLoading = false
                 )
             }
         }

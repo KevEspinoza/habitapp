@@ -37,7 +37,7 @@ fun HomeQuote(
             .clip(RoundedCornerShape(12.dp))
             .height(146.dp)
             .background(
-                color = Color.White
+                color = MaterialTheme.colorScheme.background
             )
     ) {
         Image(
@@ -62,13 +62,13 @@ fun HomeQuote(
         ) {
             Text(
                 text = quote.uppercase(),
-                color = MaterialTheme.colorScheme.tertiary,
+                color = MaterialTheme.colorScheme.surface,
                 fontSize = 16.sp,
                 fontWeight = FontWeight.Bold,
             )
             Text(
                 text = "- ${author.uppercase()}",
-                color = MaterialTheme.colorScheme.tertiary.copy(
+                color = MaterialTheme.colorScheme.secondary.copy(
                     alpha = 0.5f
                 ),
                 fontSize = 12.sp,

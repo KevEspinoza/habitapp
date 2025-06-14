@@ -1,4 +1,4 @@
-package com.kevinespinoza.habitapp
+package com.kevinespinoza.habitapp.main
 
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf

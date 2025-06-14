@@ -95,7 +95,7 @@ fun HabitTextField(
                     ) {
                         Text(
                             text = if (hidePassword) "Show" else "Hide",
-                            color = MaterialTheme.colorScheme.tertiary,
+                            color = MaterialTheme.colorScheme.secondary.copy(alpha = 0.5f),
                             textDecoration = TextDecoration.Underline
                         )
                     }
@@ -105,17 +105,24 @@ fun HabitTextField(
             singleLine = true,
             shape = RoundedCornerShape(12.dp),
             colors = OutlinedTextFieldDefaults.colors(
-                focusedTextColor = MaterialTheme.colorScheme.primary,
-                unfocusedTextColor = MaterialTheme.colorScheme.primary,
+                focusedTextColor = MaterialTheme.colorScheme.secondary,
+                unfocusedTextColor = MaterialTheme.colorScheme.secondary,
+                errorTextColor = MaterialTheme.colorScheme.secondary,
+                disabledTextColor = MaterialTheme.colorScheme.secondary,
+                errorPlaceholderColor = MaterialTheme.colorScheme.secondary.copy(alpha = 0.5f),
+                disabledPlaceholderColor = MaterialTheme.colorScheme.secondary.copy(alpha = 0.5f),
+                errorLeadingIconColor = MaterialTheme.colorScheme.secondary.copy(alpha = 0.5f),
+                disabledLeadingIconColor = MaterialTheme.colorScheme.secondary.copy(alpha = 0.5f),
                 focusedContainerColor = backgroundColor,
                 unfocusedContainerColor = backgroundColor,
+                disabledContainerColor = backgroundColor,
                 errorContainerColor = backgroundColor,
                 focusedBorderColor = Color.Transparent,
                 unfocusedBorderColor = Color.Transparent,
-                focusedLeadingIconColor = MaterialTheme.colorScheme.primary,
-                focusedPlaceholderColor = MaterialTheme.colorScheme.tertiary.copy(alpha = 0.5f),
-                unfocusedPlaceholderColor = MaterialTheme.colorScheme.tertiary.copy(alpha = 0.5f),
-                unfocusedLeadingIconColor = MaterialTheme.colorScheme.tertiary.copy(alpha = 0.5f),
+                focusedLeadingIconColor = MaterialTheme.colorScheme.secondary,
+                focusedPlaceholderColor = MaterialTheme.colorScheme.secondary.copy(alpha = 0.5f),
+                unfocusedPlaceholderColor = MaterialTheme.colorScheme.secondary.copy(alpha = 0.5f),
+                unfocusedLeadingIconColor = MaterialTheme.colorScheme.secondary.copy(alpha = 0.5f),
             ),
             visualTransformation = if (isPassword && hidePassword) PasswordVisualTransformation() else VisualTransformation.None,
             keyboardOptions = keyboardOptions,

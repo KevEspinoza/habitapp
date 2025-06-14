@@ -49,20 +49,23 @@ fun LoginForm(
 
     Box(modifier = modifier, contentAlignment = Alignment.Center) {
         Column(
-            modifier = modifier.background(Color.White, shape = RoundedCornerShape(20.dp)),
+            modifier = modifier.background(
+                MaterialTheme.colorScheme.primary,
+                shape = RoundedCornerShape(topStart = 20.dp, topEnd = 20.dp)
+            ),
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
             Text(
                 text = "Login with Email",
                 modifier = Modifier.padding(12.dp),
                 style = MaterialTheme.typography.bodyLarge,
-                color = MaterialTheme.colorScheme.tertiary,
+                color = MaterialTheme.colorScheme.secondary,
             )
             HorizontalDivider(
                 modifier = Modifier
                     .fillMaxWidth()
                     .padding(bottom = 16.dp),
-                color = MaterialTheme.colorScheme.background
+                color = MaterialTheme.colorScheme.secondary
             )
             HabitTextField(
                 value = state.email,
@@ -121,7 +124,7 @@ fun LoginForm(
             TextButton(onClick = { /*TODO*/ }) {
                 Text(
                     text = "Forgot password?",
-                    color = MaterialTheme.colorScheme.tertiary,
+                    color = MaterialTheme.colorScheme.secondary,
                     textDecoration = TextDecoration.Underline
                 )
             }
@@ -133,13 +136,15 @@ fun LoginForm(
                             append("Sign up")
                         }
                     },
-                    color = MaterialTheme.colorScheme.tertiary,
+                    color = MaterialTheme.colorScheme.secondary,
                 )
             }
 
         }
         if (state.isLoading) {
-            CircularProgressIndicator()
+            CircularProgressIndicator(
+                color = MaterialTheme.colorScheme.surface
+            )
         }
     }
 }

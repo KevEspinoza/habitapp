@@ -1,6 +1,7 @@
 package com.kevinespinoza.habitapp.core.presentation
 
 import androidx.compose.foundation.background
+import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.size
@@ -23,12 +24,17 @@ fun HabitCheckbox(
     onCheckedChange: () -> Unit,
 ) {
     val backgroundColor =
-        if (isChecked) MaterialTheme.colorScheme.primary else MaterialTheme.colorScheme.background
+        if (isChecked) MaterialTheme.colorScheme.surface else MaterialTheme.colorScheme.background
     Box(
         modifier = modifier
-            .size(35.dp)
-            .clip(RoundedCornerShape(12.dp))
+            .size(30.dp)
+            .clip(RoundedCornerShape(10.dp))
             .background(color = backgroundColor)
+            .border(
+                width = 1.dp,
+                color = MaterialTheme.colorScheme.surface,
+                shape = RoundedCornerShape(10.dp)
+            )
             .clickable {
                 onCheckedChange()
             },
@@ -36,9 +42,10 @@ fun HabitCheckbox(
     ) {
         if (isChecked) {
             Icon(
+                modifier = Modifier.size(18.dp),
                 imageVector = Icons.Default.Check,
                 contentDescription = "checked",
-                tint = MaterialTheme.colorScheme.tertiary
+                tint = MaterialTheme.colorScheme.secondary
             )
         }
     }

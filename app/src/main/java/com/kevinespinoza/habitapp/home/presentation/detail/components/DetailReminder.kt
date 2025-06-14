@@ -33,7 +33,7 @@ fun DetailReminder(
         modifier = modifier
             .fillMaxWidth()
             .clip(RoundedCornerShape(12.dp))
-            .background(Color.White)
+            .background(MaterialTheme.colorScheme.background)
             .clickable {
                 onTimeClick()
             }
@@ -45,14 +45,14 @@ fun DetailReminder(
             text = "Reminder",
             fontWeight = FontWeight.Medium,
             fontSize = 16.sp,
-            color = MaterialTheme.colorScheme.tertiary
+            color = MaterialTheme.colorScheme.secondary
         )
         Row(
             verticalAlignment = Alignment.CenterVertically
         ) {
             Text(
                 text = parseTime(reminder),
-                color = MaterialTheme.colorScheme.primary,
+                color = MaterialTheme.colorScheme.secondary,
                 fontWeight = FontWeight.Bold,
                 fontSize = 16.sp,
             )

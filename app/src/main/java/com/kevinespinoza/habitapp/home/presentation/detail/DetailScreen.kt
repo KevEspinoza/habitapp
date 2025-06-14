@@ -25,10 +25,12 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.window.DialogProperties
 import androidx.hilt.navigation.compose.hiltViewModel
 import com.kevinespinoza.habitapp.core.presentation.HabitTextField
 import com.kevinespinoza.habitapp.home.presentation.detail.components.DetailFrequency
 import com.kevinespinoza.habitapp.home.presentation.detail.components.DetailReminder
+import com.kevinespinoza.habitapp.ui.components.CustomTopBar
 import com.maxkeppeker.sheets.core.models.base.rememberSheetState
 import com.maxkeppeler.sheets.clock.ClockDialog
 import com.maxkeppeler.sheets.clock.models.ClockConfig
@@ -52,20 +54,22 @@ fun DetailScreen(
 
     val clockState = rememberSheetState()
     ClockDialog(
-        state = clockState, selection = ClockSelection.HoursMinutes { hours, minutes ->
+        state = clockState,
+        selection = ClockSelection.HoursMinutes { hours, minutes ->
             viewModel.onEvent(DetailEvent.ReminderChange(LocalTime.of(hours, minutes)))
         }, config = ClockConfig(
             defaultTime = state.reminder,
             is24HourFormat = true,
-        )
+        ),
     )
 
     Scaffold(
+        containerColor = MaterialTheme.colorScheme.primary,
         modifier = Modifier.fillMaxSize(), topBar = {
-            CenterAlignedTopAppBar(
+            CustomTopBar(
                 title = {
                     Text(
-                        text = "New Habit"
+                        text = "New habit"
                     )
                 },
                 navigationIcon = {
@@ -85,13 +89,13 @@ fun DetailScreen(
                 onClick = {
                     viewModel.onEvent(DetailEvent.HabitSave)
                 },
-                containerColor = MaterialTheme.colorScheme.primary,
+                containerColor = MaterialTheme.colorScheme.surface,
                 shape = CircleShape
             ) {
                 Icon(
                     imageVector = Icons.Default.Check,
                     contentDescription = "Create Habit",
-                    tint = MaterialTheme.colorScheme.tertiary
+                    tint = MaterialTheme.colorScheme.secondary
                 )
             }
         }
@@ -111,7 +115,7 @@ fun DetailScreen(
                 placeholder = "New habit",
                 contentDescription = "Enter habit name",
                 modifier = Modifier.fillMaxWidth(),
-                backgroundColor = Color.White,
+                backgroundColor = MaterialTheme.colorScheme.background,
                 keyboardOptions = KeyboardOptions(
                     autoCorrectEnabled = false,
                     imeAction = ImeAction.Done

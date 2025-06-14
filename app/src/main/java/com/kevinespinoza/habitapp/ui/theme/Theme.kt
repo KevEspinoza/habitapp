@@ -12,15 +12,11 @@ import androidx.compose.ui.platform.LocalView
 
 private val LightColorScheme = lightColorScheme(
     primary = Primary,
-    secondary = Background,
-    tertiary = Accent,
+    secondary = Secondary,
+    tertiary = Tertiary,
     background = Background,
-    onPrimary = Accent,
-    onSecondary = Primary,
-    onBackground = Primary,
-    onTertiary = Primary,
-    surface = Background,
-    onSurface = Accent,
+    surface = Accent,
+    error = Error,
 )
 
 @Suppress("DEPRECATION")
@@ -30,17 +26,17 @@ fun HabitAppTheme(
 ) {
     val colorScheme = LightColorScheme
     val view = LocalView.current
-    if(!view.isInEditMode){
+    if (!view.isInEditMode) {
         SideEffect {
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.VANILLA_ICE_CREAM) {
                 (view.context as Activity).window.decorView.setOnApplyWindowInsetsListener { view, insets ->
                     val statusBarInsets = insets.getInsets(WindowInsets.Type.statusBars())
-                    view.setBackgroundColor(colorScheme.primary.toArgb())
+                    view.setBackgroundColor(colorScheme.tertiary.toArgb())
                     view.setPadding(0, statusBarInsets.top, 0, 0)
                     insets
                 }
             } else {
-                (view.context as Activity).window.statusBarColor = colorScheme.primary.toArgb()
+                (view.context as Activity).window.statusBarColor = colorScheme.tertiary.toArgb()
             }
         }
     }

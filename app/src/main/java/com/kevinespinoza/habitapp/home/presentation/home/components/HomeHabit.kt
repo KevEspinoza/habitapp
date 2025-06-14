@@ -7,6 +7,7 @@ import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -31,18 +32,23 @@ fun HomeHabit(
     Row(
         modifier = modifier
             .fillMaxWidth()
-            .clip(RoundedCornerShape(topStart = 12.dp, bottomStart = 12.dp))
+            .clip(RoundedCornerShape(12.dp))
             .background(
-                Color.White
+                MaterialTheme.colorScheme.background
             )
             .clickable {
                 onHabitClick()
             }
-            .padding(19.dp),
+            .padding(18.dp),
         verticalAlignment = Alignment.CenterVertically,
         horizontalArrangement = Arrangement.SpaceBetween,
     ) {
-        Text(text = habit.name, fontWeight = FontWeight.Bold, fontSize = 14.sp)
+        Text(
+            text = habit.name,
+            fontWeight = FontWeight.Bold,
+            fontSize = 14.sp,
+            color = MaterialTheme.colorScheme.secondary
+        )
         HabitCheckbox(
             isChecked = habit.completedDates.contains(selectedDate)
         ) {

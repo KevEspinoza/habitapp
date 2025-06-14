@@ -29,15 +29,13 @@ fun DetailFrequencyDate(
 ) {
     Column(
         modifier = modifier
-            .background(Color.White)
+            .background(MaterialTheme.colorScheme.background)
             .padding(vertical = 8.dp, horizontal = 4.dp),
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
         Text(
             text = date.name.take(3),
-            color = MaterialTheme.colorScheme.tertiary.copy(
-                alpha = 0.5f
-            ),
+            color = MaterialTheme.colorScheme.secondary,
             fontWeight = FontWeight.Bold,
             fontSize = 10.sp,
         )

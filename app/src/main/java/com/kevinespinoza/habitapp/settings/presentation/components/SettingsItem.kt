@@ -37,7 +37,7 @@ fun SettingsItem(
     Row (
         modifier = modifier.fillMaxWidth().clip(RoundedCornerShape(12.dp)).clickable {
             onClick()
-        }.background(Color.White)
+        }.background(MaterialTheme.colorScheme.background)
             .padding(6.dp),
         verticalAlignment = Alignment.CenterVertically,
         horizontalArrangement = Arrangement.SpaceBetween
@@ -51,13 +51,13 @@ fun SettingsItem(
                 Icon(
                     imageVector = icon,
                     contentDescription = null,
-                    tint = MaterialTheme.colorScheme.primary
+                    tint = MaterialTheme.colorScheme.secondary
                 )
             }
             Spacer(modifier = Modifier.width(14.dp))
             Text(
                 text = text,
-                color = MaterialTheme.colorScheme.tertiary,
+                color = MaterialTheme.colorScheme.secondary,
                 fontWeight = FontWeight.Medium,
                 fontSize = 16.sp
             )
@@ -65,7 +65,7 @@ fun SettingsItem(
         Icon(
             imageVector = Icons.AutoMirrored.Filled.KeyboardArrowRight,
             contentDescription = null,
-            tint = MaterialTheme.colorScheme.tertiary
+            tint = MaterialTheme.colorScheme.secondary
         )
     }
 }

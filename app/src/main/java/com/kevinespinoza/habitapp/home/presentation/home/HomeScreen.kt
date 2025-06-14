@@ -17,8 +17,6 @@ import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Add
 import androidx.compose.material.icons.filled.Settings
 import androidx.compose.material3.Scaffold
-import androidx.compose.material3.CenterAlignedTopAppBar
-import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.FloatingActionButton
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
@@ -36,8 +34,8 @@ import com.kevinespinoza.habitapp.home.presentation.home.components.HomeAskPermi
 import com.kevinespinoza.habitapp.home.presentation.home.components.HomeDateSelector
 import com.kevinespinoza.habitapp.home.presentation.home.components.HomeHabit
 import com.kevinespinoza.habitapp.home.presentation.home.components.HomeQuote
+import com.kevinespinoza.habitapp.ui.components.CustomTopBar
 
-@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun HomeScreen(
     viewModel: HomeViewModel = hiltViewModel(),
@@ -47,8 +45,9 @@ fun HomeScreen(
 ) {
     val state = viewModel.state
     Scaffold(
+        containerColor = MaterialTheme.colorScheme.primary,
         modifier = Modifier.fillMaxSize(), topBar = {
-            CenterAlignedTopAppBar(
+            CustomTopBar(
                 title = {
                     Text(
                         text = "Home"
@@ -68,13 +67,13 @@ fun HomeScreen(
                 onClick = {
                     onNewHabit()
                 },
-                containerColor = MaterialTheme.colorScheme.primary,
+                containerColor = MaterialTheme.colorScheme.surface,
                 shape = CircleShape
             ) {
                 Icon(
                     imageVector = Icons.Default.Add,
                     contentDescription = "Create Habit",
-                    tint = MaterialTheme.colorScheme.tertiary
+                    tint = MaterialTheme.colorScheme.secondary
                 )
             }
         }
@@ -87,13 +86,12 @@ fun HomeScreen(
         LazyColumn(
             modifier = Modifier
                 .padding(it)
-                .padding(start = 20.dp),
+                .padding(start = 20.dp, end = 20.dp),
             verticalArrangement = Arrangement.spacedBy(10.dp),
             contentPadding = PaddingValues(bottom = 20.dp),
         ) {
             item {
                 HomeQuote(
-                    modifier = Modifier.padding(end = 20.dp),
                     quote = "We first make our habits, and then our habits makes us.",
                     author = "Anonymous",
                     imageId = R.drawable.onboarding1,
@@ -103,14 +101,16 @@ fun HomeScreen(
                 Row(
                     modifier = Modifier
                         .fillMaxWidth()
-                        .padding(end = 20.dp),
+                        .padding(
+                            vertical = 8.dp
+                        ),
                     verticalAlignment = Alignment.CenterVertically,
                 ) {
                     Text(
                         text = "Habits".uppercase(),
                         fontSize = 14.sp,
                         fontWeight = FontWeight.Bold,
-                        color = MaterialTheme.colorScheme.tertiary
+                        color = MaterialTheme.colorScheme.secondary
                     )
                     Spacer(
                         modifier = Modifier.width(16.dp)
